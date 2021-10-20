@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@400;500;700&display=swap');
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    cursor: default;
+    transition:all 0.3s ease;
+}
+
+
+$fontOne: 'Lato', sans-serif;
+$fontTwo :'Playfair Display', serif;
+
+$colores: (
+    lightPink: #F9F4E8,
+    OceanBlue: #4977EA,
+    grayColor: #92908B,
+    blackColor: #000,
+    lightBlack:#242528,
+    whiteColor: #fff,
+
+);
+
+.contenedor{
+    max-width: 1250px;
+    margin:0 auto;
+    width:97%;
+    padding:0 20px;
+    @media screen and (max-width:425px){
+        width:95%;
+    padding:0 ;
+    }
+}

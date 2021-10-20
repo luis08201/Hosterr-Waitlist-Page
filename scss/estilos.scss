@@ -1,0 +1,340 @@
+@import "resource";
+
+body {
+  background-color: map-get($colores, lightPink);
+  padding: 0.1px;
+  font-family: $fontOne;
+  overflow-x: hidden;
+}
+textarea,
+button,
+input {
+  font-family: $fontOne;
+}
+.main {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  &__logo {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    width: 38%;
+  }
+
+  &__nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 58%;
+  }
+
+  &__menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+  }
+  &__login {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+  }
+  &__list {
+    list-style: none;
+  }
+  &__link {
+    text-decoration: none;
+    font-size: 17px;
+    text-transform: capitalize;
+    color: map-get($colores, lightBlack);
+    cursor: pointer;
+    transition: color 0.5s 0s ease;
+    
+    &:hover {
+      color: map-get($colores, grayColor);
+    }
+  }
+  &__link--btnBlue {
+    background-color: map-get($colores, OceanBlue);
+    color: map-get($colores, whiteColor);
+    padding: 16px 18px;
+    border-radius: 9px;
+    font-weight: 700;
+    transition: opacity 0.5s 0s ease;
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+  &__photo {
+    width: 100%;
+    height: 30px;
+  }
+  &__logo--link {
+    text-decoration: none;
+    background-image: linear-gradient(
+      45deg,
+      #faa61fe6,
+      rgba(234, 87, 115, 0.9),
+      rgba(234, 87, 115, 0.9)
+    );
+    background-size: 100% 150%;
+    color: map-get($colores, whiteColor);
+    padding: 10px 18px;
+    border-radius: 32px;
+    font-weight: 500;
+    cursor: pointer;
+    transition:opacity 0.5s 0s ease;
+    &:hover{        
+        opacity:0.7;
+    } 
+  }
+  &__toggle {
+    display: none;
+  }
+  @media screen and (max-width: 960px) {
+    &__toggle {
+      display: block;
+    }
+    &__toggleBtn {
+      font-size: 22px;
+      cursor: pointer;
+    }
+    &__nav {
+      display: none;
+      &.active {
+        position: absolute;
+        top: 130%;
+        left: 0;
+        display: flex;
+        gap: 30px;
+        flex-direction: column;
+        width: 100%;
+        z-index: 99999;
+        background-color: map-get($colores, lightPink);
+        padding: 40px 0;
+      }
+    }
+    &__menu {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+    }
+    &__login {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+    }
+    &__logo {
+      width: auto;
+    }
+  }
+  @media screen and (max-width: 350px) {
+    align-items: flex-start;
+    &__logo {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 20px;
+    }
+  }
+}
+.banner {
+  padding: 124px 0 110px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas: "article picture";
+  align-items: center;
+  gap: 30px;
+
+  &__article {
+    grid-area: article;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 25px;
+  }
+  &__picture {
+    grid-area: picture;
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+  }
+  &__photo {
+    width: 80%;
+
+    &--shape:nth-last-child(1) {
+      position: absolute;
+      z-index: -3;
+      top: 2%;
+      left: 18%;
+      transform: rotate(-39deg);
+      width: 80%;
+    }
+    &--shape:nth-last-child(2) {
+      position: absolute;
+      top: 1%;
+      left: 18%;
+      transform: rotate(-25deg);
+      z-index: -2;
+      width: 80%;
+    }
+    &--shape:nth-last-child(3) {
+      position: absolute;
+      top: -3%;
+      left: 22%;
+      z-index: -1;
+      transform: rotate(-20deg);
+      width: 80%;
+    }
+  }
+  &__firstheading {
+    font-size: 52px;
+    text-transform: capitalize;
+    font-family: $fontTwo;
+  }
+  &__paragraph {
+    font-size: 20px;
+    color: map-get($colores, lightBlack);
+    display: flex;
+    align-items: center;
+  }
+  &__ico {
+    padding-right: 10px;
+  }
+  &__form {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+  }
+  &__input {
+    font-size: 16px;
+    padding: 15px 12px;
+    border: none;
+    border-radius: 8px;
+    width: 100%;
+    &:focus {
+      outline: none;
+    }
+  }
+  &__btn {
+    background-color: map-get($colores, OceanBlue);
+    color: map-get($colores, whiteColor);
+    font-size: 16px;
+    text-transform: capitalize;
+    font-weight: 700;
+    width: 140px;
+    height: 49px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: opacity 0.5s 0s ease;
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+  @media screen and (max-width: 1024px) {
+    grid-template-areas:
+      "picture picture"
+      "article article";
+    &__article {
+      grid-area: article;
+    }
+    &__picture {
+      grid-area: picture;
+    }
+    br {
+      display: none;
+    }
+    &__email {
+      width: 50%;
+    }
+  }
+  @media screen and (max-width: 425px) {
+    &__form {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    &__email {
+      width: 100%;
+    }
+    &__button {
+      width: 100%;
+    }
+    &__btn {
+      width: 100%;
+    }
+    &__paragraph {
+      font-size: 18px;
+    }
+    &__firstheading {
+      font-size: 46px;
+      font-weight: 500;
+    }
+  }
+}
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @media screen and (max-width: 767px) {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  &__menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+  }
+  @media screen and (max-width: 374px) {
+    &__menu {
+      gap: 20px;
+    }
+  }
+  &__list {
+    list-style: none;
+  }
+  &__link {
+    text-transform: capitalize;
+    text-decoration: none;
+    font-size: 17px;
+    color: map-get($colores, lightBlack);
+    cursor: pointer;
+    transition: color 0.5s 0s ease;
+    &:hover {
+      color: map-get($colores, grayColor);
+    }
+  }
+  &__popup {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+  }
+  &__middleheading {
+    font-size: 20px;
+    font-weight: 400;
+    font-family: $fontTwo;
+  }
+  &__smallheading {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  /* &__photo {
+    width: 100%;
+  } */
+}
